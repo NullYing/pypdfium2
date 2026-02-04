@@ -543,6 +543,11 @@ struct_FPDF_COLORSCHEME_._fields_ = (
 
 FPDF_COLORSCHEME = struct_FPDF_COLORSCHEME_
 
+if hasattr(_libs['pdfium'], 'FPDF_RenderPage'):
+    FPDF_RenderPage = _libs['pdfium']['FPDF_RenderPage']
+    FPDF_RenderPage.argtypes = (POINTER(None), FPDF_PAGE, c_int, c_int, c_int, c_int, c_int, c_int)
+    FPDF_RenderPage.restype = FPDF_BOOL
+
 if hasattr(_libs['pdfium'], 'FPDF_RenderPageBitmap'):
     FPDF_RenderPageBitmap = _libs['pdfium']['FPDF_RenderPageBitmap']
     FPDF_RenderPageBitmap.argtypes = (FPDF_BITMAP, FPDF_PAGE, c_int, c_int, c_int, c_int, c_int, c_int)
